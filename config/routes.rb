@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   #resources for tezbazaari
-  resources :user
+  resources :userlogin
 
 
 

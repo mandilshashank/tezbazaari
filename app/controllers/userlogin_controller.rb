@@ -1,0 +1,2 @@
+class UserloginController < ApplicationController
+end
