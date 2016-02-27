@@ -27,13 +27,18 @@ ActiveRecord::Schema.define(version: 20160227182829) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer  "user_profile_id", limit: 4
+    t.integer  "location_id",     limit: 4
     t.datetime "create_date"
-    t.float    "total",       limit: 24
-    t.string   "promo_code",  limit: 255
-    t.string   "ship_vendor", limit: 255
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.float    "total",           limit: 24
+    t.string   "promo_code",      limit: 255
+    t.string   "ship_vendor",     limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
+
+  add_index "orders", ["location_id"], name: "index_orders_on_location_id", using: :btree
+  add_index "orders", ["user_profile_id"], name: "index_orders_on_user_profile_id", using: :btree
 
   create_table "skus", force: :cascade do |t|
     t.string   "name",            limit: 255
@@ -63,6 +68,7 @@ ActiveRecord::Schema.define(version: 20160227182829) do
   end
 
   create_table "user_profiles", force: :cascade do |t|
+    t.integer  "user_login_id",      limit: 4
     t.string   "firstname",          limit: 255
     t.string   "lastname",           limit: 255
     t.datetime "user_create_date"
@@ -70,5 +76,7 @@ ActiveRecord::Schema.define(version: 20160227182829) do
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end
+
+  add_index "user_profiles", ["user_login_id"], name: "index_user_profiles_on_user_login_id", using: :btree
 
 end

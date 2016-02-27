@@ -1,6 +1,7 @@
 class CreateUserProfiles < ActiveRecord::Migration
   def change
     create_table :user_profiles do |t|
+      t.belongs_to :user_login, index: true
       t.string :firstname
       t.string :lastname
       t.datetime :user_create_date
