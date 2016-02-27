@@ -11,25 +11,64 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160227165349) do
+ActiveRecord::Schema.define(version: 20160227182829) do
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "address1",   limit: 255
+    t.string   "address2",   limit: 255
+    t.string   "city",       limit: 255
+    t.string   "state",      limit: 255
+    t.string   "zip_code",   limit: 255
+    t.string   "country",    limit: 255
+    t.string   "phone",      limit: 255
+    t.string   "email",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.datetime "create_date"
+    t.float    "total",       limit: 24
+    t.string   "promo_code",  limit: 255
+    t.string   "ship_vendor", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "skus", force: :cascade do |t|
+    t.string   "name",            limit: 255
+    t.string   "desc",            limit: 255
+    t.float    "price",           limit: 24
+    t.string   "category",        limit: 255
+    t.string   "cuisine",         limit: 255
+    t.string   "vendor_prime",    limit: 255
+    t.string   "vendor_second",   limit: 255
+    t.string   "vendor_third",    limit: 255
+    t.string   "stock_photo_uri", limit: 255
+    t.datetime "create_date"
+    t.datetime "end_date"
+    t.boolean  "out_of_stock"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
 
   create_table "user_logins", force: :cascade do |t|
     t.string   "email_id",               limit: 255
     t.string   "password",               limit: 255
     t.string   "old_password",           limit: 255
     t.boolean  "user_verified"
-    t.date     "user_verification_date"
+    t.datetime "user_verification_date"
     t.datetime "created_at",                         null: false
     t.datetime "updated_at",                         null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "firstname",  limit: 255
-    t.string   "lastname",   limit: 255
-    t.string   "email",      limit: 255
-    t.string   "password",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+  create_table "user_profiles", force: :cascade do |t|
+    t.string   "firstname",          limit: 255
+    t.string   "lastname",           limit: 255
+    t.datetime "user_create_date"
+    t.datetime "user_last_modified"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  desc: MyString
+  price: 1.5
+  category: MyString
+  cuisine: MyString
+  vendor_prime: MyString
+  vendor_second: MyString
+  vendor_third: MyString
+  stock_photo_uri: MyString
+  create_date: 2016-02-27 10:25:51
+  end_date: 2016-02-27 10:25:51
+  out_of_stock: false
+
+two:
+  name: MyString
+  desc: MyString
+  price: 1.5
+  category: MyString
+  cuisine: MyString
+  vendor_prime: MyString
+  vendor_second: MyString
+  vendor_third: MyString
+  stock_photo_uri: MyString
+  create_date: 2016-02-27 10:25:51
+  end_date: 2016-02-27 10:25:51
+  out_of_stock: false

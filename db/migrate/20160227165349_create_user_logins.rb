@@ -5,7 +5,7 @@ class CreateUserLogins < ActiveRecord::Migration
       t.string :password
       t.string :old_password
       t.boolean :user_verified
-      t.date :user_verification_date
+      t.datetime :user_verification_date
 
       t.timestamps null: false
     end

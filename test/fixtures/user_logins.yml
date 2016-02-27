@@ -5,11 +5,11 @@ one:
   password: MyString
   old_password: MyString
   user_verified: false
-  user_verification_date: 2016-02-27
+  user_verification_date: 2016-02-27 09:33:56
 
 two:
   email_id: MyString
   password: MyString
   old_password: MyString
   user_verified: false
-  user_verification_date: 2016-02-27
+  user_verification_date: 2016-02-27 09:33:56
