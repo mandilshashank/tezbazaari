@@ -22,13 +22,40 @@
     <!-- Add the top navigation bar-->
     <%= render 'shared/navigation_bar' %>
 
+    <!--Divide the page into sidebar and main body -->
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="col-xs-2">
+          <!--Sidebar content-->
+          <%= render 'shared/leftbar_content' %>
+        </div>
 
+        <div class="col-xs-8">
+          <!--Body content-->
+          <!-- To do: These divs need to be generated based on the number of elements to
+          be shown-->
+          <div class="row">
+            <div class="col-xs-6 col-md-3">
+              <a href="#" class="thumbnail">
+                <img src="..." alt="...">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xs-2">
+          <!--Right bar content -->
+
+          <!--Quick cart view-->
+          <%= render 'shared/quick_cart' %>
+        </div>
+      </div>
+    </div>
+
+<% if false %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <h1>Hello, Twitter Bootstrap</h1>
-
-<% if false %>
     <ul class="hmenu">
       <%= render 'devise/menu/registration_items' %>
       <%= render 'devise/menu/login_items' %>
