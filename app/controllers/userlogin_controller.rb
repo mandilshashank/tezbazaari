@@ -1,21 +1,24 @@
 class UserloginController < ApplicationController
-  def new
+  def add_user
+    @userlogin = UserLogin.new(params[:userlogin])
+    if request.post? and @userlogin.save
+      flash.now[:notice] = "User #{@user.email} created"
+      @userlogin = UserLogin.new
+    end
   end
 
-  def create
-    @userlogin = UserLogin.new(user_params)
-    #We need to do the validation here for signup
-
-    @userlogin.save
-    redirect_to @userlogin
+  def login
   end
 
-  def show
-    @userlogin = UserLogin.find(params[:id])
+  def logout
   end
 
-  private
-  def userlogin_params
-    params.require(:userlogin).permit( :email, :password)
+  def index
+  end
+
+  def delete_user
+  end
+
+  def list_users
   end
 end

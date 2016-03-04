@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'userlogin/add_user'
+
+  get 'userlogin/login'
+
+  get 'userlogin/logout'
+
+  get 'userlogin/index'
+
+  get 'userlogin/delete_user'
+
+  get 'userlogin/list_users'
+
   get 'welcome/index'
   root 'welcome#index'
 

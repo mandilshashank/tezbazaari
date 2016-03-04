@@ -21,6 +21,9 @@ gem 'mysql'
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'autoprefixer-rails'
 
+#session
+gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
