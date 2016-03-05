@@ -1,8 +1,8 @@
 class UserLogin < ActiveRecord::Base
   include ActiveModel::Validations
 
-  validates :email_id, presence: true
-  validates :email_id, uniqueness: true
+  validates :email_id, presence: {message: 'Email id should be present'}
+  validates :email_id, uniqueness: {message: 'Email id is already registered'}
 
   attr_accessor :password_confirmation
   validates_confirmation_of :password

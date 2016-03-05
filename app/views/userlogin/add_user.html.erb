@@ -26,7 +26,13 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="col-xs-4 col-xs-offset-4">
-        <%= form_for @userlogin, url: {action: "add_user"}, :html => {:class => "form-horizontal center"} do |f| %>
+          <!--Show flash messages here-->
+          <%= form_for @userlogin, url: {action: "add_user"}, :html => {:class => "form-horizontal center"} do |f| %>
+          <!--Render error messages-->
+          <%= render 'shared/error_messages', object: f.object %>
+
+          <%= render 'shared/flash_messages' if !flash.empty? %>
+
         <div class="form-group">
           <%= f.label :email_id, "Email Id", class: "col-md-4 control-label" %>
           <div class="col-md-8">
