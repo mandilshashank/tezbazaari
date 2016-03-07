@@ -30,7 +30,7 @@ class UserloginController < ApplicationController
 
   def logout
     session[:userlogin_id] = nil
-    flash[:notice] = "You are successfully logged out of the system"
+    flash.now[:notice] = "You are successfully logged out of the system"
     redirect_to welcome_index_path
   end
 
