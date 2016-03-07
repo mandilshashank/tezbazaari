@@ -38,7 +38,11 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/userlogin/login">Login</a></li>
+        <% if is_user_loggedin %>
+            <li><a href="/userlogin/logout">Logout</a></li>
+        <% else %>
+            <li><a href="/userlogin/login">Login</a></li>
+        <% end %>
         <li><a href="/userlogin/add_user">Sign up</a></li>
         <!--
         <li class="dropdown">
