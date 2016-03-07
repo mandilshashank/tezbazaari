@@ -15,13 +15,14 @@ class UserLogin < ActiveRecord::Base
   end
 
   def self.authenticate(email, password)
-    userlogin = self.find_by_email(email)
+    userlogin = self.find_by_email_id(email)
     if userlogin
-      expected_password = encrypted_password(password, user.salt)
+      expected_password = encrypted_password(password, userlogin.salt)
       if userlogin.hashed_password != expected_password
         userlogin = nil
       end
     end
+    userlogin
   end
 
   # 'password' is a virtual attribute

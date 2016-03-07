@@ -1,4 +1,6 @@
 class UserloginController < ApplicationController
+  helper :all
+
   def add_user
     if request.post?
       #handle posts
@@ -14,9 +16,22 @@ class UserloginController < ApplicationController
   end
 
   def login
+    session[:userlogin_id] = nil
+    if request.post?
+      userlogin = UserLogin.authenticate(params[:email_id], params[:password])
+      if userlogin
+        session[:userlogin_id] = userlogin.id
+        redirect_to welcome_index_path
+      else
+        flash.now[:alert] = "Invalid email_id/password combination"
+      end
+    end
   end
 
   def logout
+    session[:userlogin_id] = nil
+    flash[:notice] = "You are successfully logged out of the system"
+    redirect_to welcome_index_path
   end
 
   def index

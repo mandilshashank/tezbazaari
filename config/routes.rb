@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'userlogin/add_user'
 
   get 'userlogin/login'
+  post 'userlogin/login'
 
   get 'userlogin/logout'
 
