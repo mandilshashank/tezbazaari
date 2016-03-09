@@ -9,6 +9,7 @@ class WelcomeController < ApplicationController
     @cart = find_cart
     sku = Sku.find(params[:id])
     @cart.add_skus(sku)
+    redirect_to :action => 'index'
   end
 
   private
