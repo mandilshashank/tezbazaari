@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160304091535) do
+ActiveRecord::Schema.define(version: 20160309054801) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "address1",   limit: 255
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 20160304091535) do
 
   add_index "orders", ["location_id"], name: "index_orders_on_location_id", using: :btree
   add_index "orders", ["user_profile_id"], name: "index_orders_on_user_profile_id", using: :btree
+
+  create_table "sessions", force: :cascade do |t|
+    t.string   "session_id", limit: 255,   null: false
+    t.text     "data",       limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
+  add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
   create_table "skus", force: :cascade do |t|
     t.string   "name",            limit: 255

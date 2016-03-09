@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   get 'welcome/index'
   root 'welcome#index'
 
+  post 'welcome/add_to_cart'
+
   #resources for tezbazaari
   resources :userlogin
 
