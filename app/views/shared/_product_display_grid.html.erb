@@ -1,13 +1,13 @@
-<div class="container">
+<% @skus.in_groups_of(3, false).each do |group| %>
             <div class="row">
-              <% @skus.each do |sku| %>
-              <div class="col-lg-4">
-                <%= image_tag(sku.stock_photo_uri, class: 'list_image', size: '150x200') %><br/>
-                <%= sku.name %> <br/>
-                <%= "Price: $#{sku.price}" %> <br/>
-                <%= button_to "Add to Cart", :action => :add_to_cart, :id => sku%>
-              </div>
-              <% end %>
+                  <% group.each do |sku| %>
+                  <div class="col-lg-4">
+                    <%= image_tag(sku.stock_photo_uri, class: 'list_image', size: '150x200') %><br/>
+                    <%= sku.name %> <br/>
+                    <%= "Price: $#{sku.price}" %> <br/>
+                    <%= button_to "Add to Cart", :action => :add_to_cart, :id => sku%>
+                  </div>
+                  <% end %>
             </div>
             <hr/>
-</div>
+<% end %>
