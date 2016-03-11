@@ -1,8 +1,11 @@
 <ul class="nav nav-pills nav-stacked">
   <li><b>Categories</b></li>
   <!--To do : This needs to come from the database-->
-  <li role="presentation" class="active"><a href="#">Beverages</a></li>
-  <li role="presentation"><a href="#">Snacks</a></li>
-  <li role="presentation"><a href="#">Spices</a></li>
-  <li role="presentation"><a href="#">Essentials</a></li>
+  <% @sku_categories.each do |sku_categorie| %>
+  <li role="presentation">
+    <a href="/welcome/index?cat=<%= sku_categorie.cat_name %>">
+      <%= sku_categorie.cat_name %>
+    </a>
+  </li>
+  <% end %>
 </ul>

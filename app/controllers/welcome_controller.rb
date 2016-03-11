@@ -2,7 +2,12 @@ class WelcomeController < ApplicationController
   helper :all
 
   def index
-    @skus = Sku.find_by_sql("select * from skus")
+    if(params.has_key?(:cat))
+      @skus = Sku.joins(:sku_categorie).where("sku_categories.cat_name = ?", params[:cat])
+    else
+      @skus = Sku.find_by_sql("select * from skus")
+    end
+    @sku_categories = SkuCategorie.all
   end
 
   def add_to_cart

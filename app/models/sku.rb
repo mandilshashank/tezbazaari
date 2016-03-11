@@ -1,3 +1,3 @@
 class Sku < ActiveRecord::Base
-  has_one :sku_categorie
+  belongs_to :sku_categorie
 end
