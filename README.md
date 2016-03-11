@@ -8,4 +8,4 @@ How to setup :
 3) Git clone tezbazaari repository
 4) cd tezbazaari folder
 5) bundle install
-6) rails db:migrate
+6) rake db:migrate
