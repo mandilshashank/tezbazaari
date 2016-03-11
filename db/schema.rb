@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309054801) do
+ActiveRecord::Schema.define(version: 20160311064729) do
 
   create_table "locations", force: :cascade do |t|
     t.string   "address1",   limit: 255
@@ -50,22 +50,28 @@ ActiveRecord::Schema.define(version: 20160309054801) do
   add_index "sessions", ["session_id"], name: "index_sessions_on_session_id", unique: true, using: :btree
   add_index "sessions", ["updated_at"], name: "index_sessions_on_updated_at", using: :btree
 
+  create_table "sku_categories", force: :cascade do |t|
+    t.string "cat_name", limit: 255
+  end
+
   create_table "skus", force: :cascade do |t|
-    t.string   "name",            limit: 255
-    t.string   "desc",            limit: 255
-    t.float    "price",           limit: 24
-    t.string   "category",        limit: 255
-    t.string   "cuisine",         limit: 255
-    t.string   "vendor_prime",    limit: 255
-    t.string   "vendor_second",   limit: 255
-    t.string   "vendor_third",    limit: 255
-    t.string   "stock_photo_uri", limit: 255
+    t.integer  "sku_categorie_id", limit: 4
+    t.string   "name",             limit: 255
+    t.string   "desc",             limit: 255
+    t.float    "price",            limit: 24
+    t.string   "cuisine",          limit: 255
+    t.string   "vendor_prime",     limit: 255
+    t.string   "vendor_second",    limit: 255
+    t.string   "vendor_third",     limit: 255
+    t.string   "stock_photo_uri",  limit: 255
     t.datetime "create_date"
     t.datetime "end_date"
     t.boolean  "out_of_stock"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
+
+  add_index "skus", ["sku_categorie_id"], name: "index_skus_on_sku_categorie_id", using: :btree
 
   create_table "user_logins", force: :cascade do |t|
     t.string   "email_id",               limit: 255

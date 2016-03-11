@@ -1,10 +1,10 @@
 class CreateSkus < ActiveRecord::Migration
   def change
     create_table :skus do |t|
+      t.belongs_to :sku_categorie, index:true
       t.string :name
       t.string :desc
       t.float :price
-      t.string :category
       t.string :cuisine
       t.string :vendor_prime
       t.string :vendor_second

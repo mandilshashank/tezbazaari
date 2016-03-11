@@ -1,4 +1,3 @@
 class Sku < ActiveRecord::Base
-  def index
-  end
+  has_one :sku_categorie
 end
