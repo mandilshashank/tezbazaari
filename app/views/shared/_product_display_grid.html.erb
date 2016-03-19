@@ -1,7 +1,7 @@
 <% @skus.in_groups_of(3, false).each do |group| %>
-            <div class="row"">
+            <div class="row">
                   <% group.each do |sku| %>
-                  <a data-toggle="modal" data-id="<%= sku %>" title="Product Description" class="openDescModal" href="#ProdInfoModal">
+                  <a data-toggle="modal" data-id="<%= sku.to_json %>" title="Product Description" class="openDescModal" href="#ProdInfoModal">
                   <div class="col-lg-4" >
                     <%= image_tag(sku.stock_photo_uri, class: 'list_image', size: '150x200') %><br/>
                     <%= sku.name %> <br/>
@@ -14,13 +14,21 @@
             <hr/>
 <% end %>
 
-<div id="ProdInfoModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="Product Info" aria-hidden="true">
-  <div class="modal-header">
-    <button class="close" data-dismiss="modal">×</button>
-    <h3>Product Description</h3>
-  </div>
-  <div class="modal-body">
-    <p id="price"></p>
+<div id="ProdInfoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Product Info" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button class="close" data-dismiss="modal">×</button>
+        <h3>Product Description</h3>
+      </div>
+      <div class="modal-body">
+        <img id="sku_img" class='list_image' size='150x200' href=""></img>
+        <p id="price"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Add to Cart</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -30,13 +38,8 @@ $('#ProdInfoModal').on('show.bs.modal', function (event) {
   var sku = link.data('id') // Extract info from data-* attributes
 
   var modal = $(this)
-  modal.find('.modal-body price').innerHTML = sku.price
+  $(".modal-body").html("Where did he go?!?!?!");
+  modal.find('.modal-body #sku_img')[0].href = sku.stock_photo_uri
+  modal.find('.modal-body #price')[0].innerHTML = sku.price
 })
-/*
-$(document).on("click", ".openDescModal", function () {
-     var currentSku = $(this).data('id');
-     $(".modal-body #price").innerHTML =  currentSku.price;
-
-});
-*/
 </script>
