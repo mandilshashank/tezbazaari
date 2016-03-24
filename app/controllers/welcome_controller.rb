@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
       @skus = Sku.find_by_sql("select * from skus")
     end
     @sku_categories = SkuCategorie.all
+    @cart = get_cart
   end
 
   def add_to_cart
@@ -18,6 +19,10 @@ class WelcomeController < ApplicationController
   end
 
   private
+
+  def get_cart
+    session[:cart]
+  end
 
   def find_cart
     session[:cart] ||= Cart.new

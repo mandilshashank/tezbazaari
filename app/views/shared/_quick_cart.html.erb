@@ -1,3 +1,34 @@
-<div class="row">
-  Quick cart view goes here ...
-</div>
+<% if @cart %>
+  <% @total = 0 %>
+  <% @total_quant=0 %>
+  <% @cart.items.each do |item| %>
+            <div class="row">
+              <div class="col-xs-3">
+                <%= item.title %>
+              </div>
+              <div class="col-xs-4">
+                x
+                <%= item.quantity %>
+                <% @total_quant += item.quantity %>
+              </div>
+              <div class="col-xs-4">
+                <%= item.price.round(2) %>
+                <% @total += item.price.round(2)%>
+              </div>
+            </div>
+            <hr/>
+  <% end %>
+  <div class="row">
+    <div class="col-xs-4">
+      <b>Total</b>
+    </div>
+    <div class="col-xs-4">
+      <b><%= @total_quant%></b>
+    </div>
+    <div class="col-xs-4">
+      <b><%= @total %></b>
+    </div>
+  </div>
+ <% else %>
+    Empty Cart
+ <% end %>

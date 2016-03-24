@@ -3,7 +3,7 @@ class CartItem
 
   def initialize(sku)
     @sku = sku
-    quantity = 1
+    @quantity = 1
   end
 
   def increment_quantity
@@ -11,7 +11,7 @@ class CartItem
   end
 
   def title
-    @sku.title
+    @sku.name
   end
 
   def price
