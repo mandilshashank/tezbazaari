@@ -14,7 +14,7 @@
             <hr/>
 <% end %>
 
-<div id="ProdInfoModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Product Info" aria-hidden="true">
+<div id="ProdInfoModal" class="modal fade" tabindex="-1" role="dialog" data-toggle="modal" aria-labelledby="Product Info" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -34,12 +34,12 @@
 
 <script type="text/javascript">
 $('#ProdInfoModal').on('show.bs.modal', function (event) {
-  var link = $(event.relatedTarget) // Button that triggered the modal
-  var sku = link.data('id') // Extract info from data-* attributes
+  var link = $(event.relatedTarget);
+  var sku = link.data('id');
 
-  var modal = $(this)
-  $(".modal-body").html("Where did he go?!?!?!");
-  modal.find('.modal-body #sku_img')[0].href = sku.stock_photo_uri
-  modal.find('.modal-body #price')[0].innerHTML = sku.price
-})
+  var modal = $(this);
+  <!-- modal.find('.modal-body #sku_img')[0].attr(href,sku.stock_photo_uri) -->
+  <!-- modal. find('.modal-body #price')[0].innerHTML = sku.price -->
+});
+
 </script>
