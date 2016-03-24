@@ -6,7 +6,7 @@ class Cart
   end
 
   def add_skus(sku)
-    current_item = @items.find { |item| item.sku == sku }
+    current_item = @items.find { |item| item.sku.id == sku.id }
     if current_item
       current_item.increment_quantity
     else

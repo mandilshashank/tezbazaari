@@ -1,3 +1,15 @@
-<div class="row">
-  Quick cart view goes here ...
-</div>
+<% if @cart %>
+  <% @cart.items.each do |item| %>
+            <div class="row">
+              <div class="col-xs-6">
+                <%= item.title %>
+              </div>
+              <div class="col-xs-6">
+                <%= item.price.round(2) %>
+              </div>
+            </div>
+            <hr/>
+   <% end %>
+ <% else %>
+    Empty Cart
+ <% end %>
