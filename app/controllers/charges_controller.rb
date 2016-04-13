@@ -22,6 +22,7 @@ class ChargesController < ApplicationController
 
     #TODO: Order information needs to be updated here
 
+
     session[:cart] = nil
     redirect_to welcome_index_path
 
