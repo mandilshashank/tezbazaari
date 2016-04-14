@@ -18,8 +18,6 @@ Rails.application.routes.draw do
   #resources for tezbazaari
   resources :order
   resources :userlogin
-  resources :charges
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

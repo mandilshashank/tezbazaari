@@ -1,4 +1,4 @@
-class ChargesController < ApplicationController
+class OrderController < ApplicationController
   helper :all
 
   #Get view for the order page
