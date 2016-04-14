@@ -43,12 +43,13 @@
 
       <%= hidden_field_tag(:payment_amount,value=@total*100)%>
 
-      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-        data-description="Payment"
-        data-amount="<%= @total * 100 %>"
-               data-locale="auto">
-      </script>
+        <% if is_user_loggedin %>
+          <!--TODO: Change this to take the user to details page to give order details -->
+          <a href="/order"><button type="button" class="btn btn-primary">Checkout</button></a>
+        <% else %>
+          <a href="/userlogin/login"><button type="button" class="btn btn-primary">Login to Pay</button></a>
+        <% end %>
+
       <% end %>
     </div>
   </div>

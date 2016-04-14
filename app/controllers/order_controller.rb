@@ -1,10 +1,11 @@
 class ChargesController < ApplicationController
   helper :all
 
-  def new
+  #Get view for the order page
+  def index
   end
 
-  def add_order
-
+  #Post controller for the order page
+  def create
   end
 end
