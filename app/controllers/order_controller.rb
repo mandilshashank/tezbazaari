@@ -8,4 +8,7 @@ class OrderController < ApplicationController
   #Post controller for the order page
   def create
   end
+
+  def show(id)
+  end
 end
