@@ -6,11 +6,8 @@ Rails.application.routes.draw do
   post 'userlogin/login'
 
   get 'userlogin/logout'
-
   get 'userlogin/index'
-
   get 'userlogin/delete_user'
-
   get 'userlogin/list_users'
 
   get 'welcome/index'
@@ -19,12 +16,11 @@ Rails.application.routes.draw do
   post 'welcome/add_to_cart'
 
   #resources for tezbazaari
+  resources :order
   resources :userlogin
-
 
   #redirect all unknown paths to /
   match "*path" => "welcome#index", via: [:get, :post]
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
