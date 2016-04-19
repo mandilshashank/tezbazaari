@@ -1,58 +1,58 @@
 <% if @cart %>
-  <% @total = 0 %>
-  <% @total_quant=0 %>
-  <% @cart.items.each do |item| %>
-            <div class="row">
-              <div class="col-xs-4">
-                <%= item.title %>
-              </div>
-              <div class="col-xs-3 col-xs-offset-1">
-                x
-                <%= item.quantity %>
-                <% @total_quant += item.quantity %>
-              </div>
-              <div class="col-xs-4">
-                <%= item.price.round(2) %>
-                <% @total += item.price.round(2)%>
-              </div>
-            </div>
-            <hr/>
-  <% end %>
-  <div class="row">
-    <div class="col-xs-4">
-      <b>Total</b>
-    </div>
-    <div class="col-xs-4">
-      <b><%= @total_quant%></b>
-    </div>
-    <div class="col-xs-4">
-      <b><%= @total %></b>
-    </div>
+<% @total = 0 %>
+<% @total_quant=0 %>
+<% @cart.items.each do |item| %>
+<div class="row">
+  <div class="col-xs-4">
+    <%= item.title %>
   </div>
-  <br/>
-  <div class="row">
-    <div class="col-xs-4">
-      <%= form_tag order_path(0) do %>
-      <article>
-        <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
-        </div>
-        <% end %>
-      </article>
-
-      <%= hidden_field_tag(:payment_amount,value=@total*100)%>
-
-        <% if is_user_loggedin %>
-          <!--TODO: Change this to take the user to details page to give order details -->
-          <a href="/order"><button type="button" class="btn btn-primary">Checkout</button></a>
-        <% else %>
-          <a href="/userlogin/login"><button type="button" class="btn btn-primary">Login to Pay</button></a>
-        <% end %>
-
+  <div class="col-xs-3 col-xs-offset-1">
+    x
+    <%= item.quantity %>
+    <% @total_quant += item.quantity %>
+  </div>
+  <div class="col-xs-4">
+    <%= item.price.round(2) %>
+    <% @total += item.price.round(2)%>
+  </div>
+</div>
+<hr/>
+<% end %>
+<div class="row">
+  <div class="col-xs-4">
+    <b>Total</b>
+  </div>
+  <div class="col-xs-4">
+    <b><%= @total_quant%></b>
+  </div>
+  <div class="col-xs-4">
+    <b><%= @total %></b>
+  </div>
+</div>
+<br/>
+<div class="row">
+  <div class="col-xs-4">
+    <%= form_tag order_path(0) do %>
+    <article>
+      <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
       <% end %>
-    </div>
+    </article>
+
+    <%= hidden_field_tag(:payment_amount,value=@total*100)%>
+
+      <% if is_user_loggedin %>
+    <!--TODO: Change this to take the user to details page to give order details -->
+        <a href="/order"><button type="button" class="btn btn-primary">Checkout</button></a>
+      <% else %>
+        <a href="/userlogin/login"><button type="button" class="btn btn-primary">Login to Pay</button></a>
+      <% end %>
+
+    <% end %>
   </div>
- <% else %>
-    Empty Cart
+</div>
+<% else %>
+Empty Cart
  <% end %>
