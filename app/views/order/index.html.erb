@@ -22,6 +22,9 @@
     <!-- Add the top navigation bar-->
     <%= render 'shared/navigation_bar' %>
 
+	<!-- Here first select the customer location using the user_login_id -->
+	<%= simple_format @locations.to_yaml %>
+
     <%= yield %>
   </body>
 </html>
