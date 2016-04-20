@@ -23,7 +23,12 @@
     <%= render 'shared/navigation_bar' %>
 
 	<!-- Here first select the customer location using the user_login_id -->
-	<%= simple_format @locations.to_yaml %>
+	<% if @location_present.nil? %>
+		<!--TODO: Location is not present. Either select location or add new location-->
+	<% else %>
+		<!--TODO: Location is present. Continue with the cart page-->
+		<%= simple_format @location.to_yaml %>
+	<% end %>
 
     <%= yield %>
   </body>
